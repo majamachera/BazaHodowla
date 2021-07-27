@@ -1,0 +1,251 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="mat-typography ng-tns-0-0">
+  <div class="page-content--bgf7">
+    <div class="container">
+      <section class="au-breadcrumb2"> </section>
+      
+      <section class="welcome p-t-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title-4">Szczeniaki Edycja
+                    </h1>
+                    <hr class="line-seprate">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p-t-20">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive table-responsive-data2">
+              <table class="table table-data2">
+                <thead class="tr-shadow">
+
+                  <th>Imie</th>
+                  <th>Płeć</th>
+                  <th>Rasa</th>
+                  <th>Maść</th>
+                  <th>Długość Sierści</th>
+                  <th>Rodowód</th>
+                  <th>Data urodzenia</th>
+                </thead>
+                <tbody>
+                  <tr class="spacer"></tr>
+
+                  <ng-container style="text-align: center;" *ngFor="let loadpup of loadpup">
+                    <ng-container *ngIf="loadpup.matkaId === +actionService.iddopup">
+
+                      <tr class="tr-shadow">
+
+                        <td>{{loadpup.imie}}</td>
+                        <td>{{loadpup.plec}}</td>
+                        <td>{{loadpup.rasa}}</td>
+                        <td>{{loadpup.masc}}</td>
+                        <td>{{loadpup.dlugoscSiersci}}</td>
+                        <td>{{loadpup.rodowod}}</td>
+                        <td>{{loadpup.dataUrodzenia |date:'yyyy-MM-dd HH:mm'}}</td>
+                        <div class="table-data-feature">
+                          <button [routerLink]="['/pup/edit']" type="button" data-toggle="tooltip"
+                            data-original-title="Edit" class="item "><a><i class="fa fa-edit"></i></a></button>
+                          <button type="button" class="btn btn-danger " data-toggle="tooltip" class="item "> <a><i
+                                class="fa fa-trash"></i></a></button>
+                        </div>
+                      </tr>
+                      <tr class="spacer"></tr>
+                    </ng-container>
+                    <ng-container *ngIf="loadpup.id === +actionService.iddopupedit ">
+
+                      <tr class="tr-shadow" class="edit">
+
+                        <td>
+                          <form #editForm="ngForm" id=form1 (ngSubmit)="update()" class="form-signin">
+                            <input class="form-control" name="imie" type="text" [(ngModel)]="pup.imie">
+                          </form>
+                        </td>
+                        <td form="form1"> <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref"
+                            required name="plec" [(ngModel)]="pup.plec">
+                            <option>Suka</option>
+                            <option>Pies</option>
+                          </select></td>
+
+                        <td form="form1"> <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref"
+                            required name="rasa" [(ngModel)]="pup.rasa">
+                            <option>Airedale terrier</option>
+                            <option>Akbash dog</option>
+                            <option>Akita</option>
+                            <option>Alapaha blue blood bulldog</option>
+                            <option>Alaskan klee kai</option>
+                            <option>Alaskan malamute</option>
+                            <option>American eskimo dog</option>
+                            <option>Amerykański spaniel wodny</option>
+                            <option>Amerykański staffordshire terrier</option>
+                            <option>Anatolijski pies pasterski</option>
+                            <option>Appenzeller</option>
+                            <option>Australian cattle dog</option>
+                            <option>Australian silky terrier</option>
+                            <option>Basenji</option>
+                            <option>Basset hound</option>
+                            <option>Beagle</option>
+                            <option>Bearded collie</option>
+                            <option>Bernardyn</option>
+                            <option>Berneński pies pasterski</option>
+                            <option>Bichon frise</option>
+                            <option>Black tan coonhound</option>
+                            <option>Bloodhound</option>
+                            <option>Boerboel</option>
+                            <option>Bokser</option>
+                            <option>Border collie</option>
+                            <option>Border terrier</option>
+                            <option>Boston terrier</option>
+                            <option>Bouvier des flandres</option>
+                            <option>Briquet griffon vendéen</option>
+                            <option>Buldog amerykański</option>
+                            <option>Buldog angielski</option>
+                            <option>Buldog francuski</option>
+                            <option>Bullmastiff</option>
+                            <option>Bulterier</option>
+                            <option>Bulterier miniaturowy</option>
+                            <option>Cairn terrier</option>
+                            <option>Canaan dog</option>
+                            <option>Catahoula leopard dog</option>
+                            <option>Cavalier king charles spaniel</option>
+                            <option>Charcik włoski</option>
+                            <option>Chart afgański</option>
+                            <option>Chart angielski</option>
+                            <option>Chart perski - saluki</option>
+                            <option>Chart rosyjski borzoj</option>
+                            <option>Chart szkocki</option>
+                            <option>Chihuahua</option>
+                            <option>Chin japoński</option>
+                            <option>Chinese foo</option>
+                            <option>Chow chow</option>
+                            <option>Clumber spaniel</option>
+                            <option>Cocker spaniel amerykański</option>
+                            <option>Cocker spaniel angielski</option>
+                            <option>Coton de tuléar</option>
+                            <option>Curly coated retriever</option>
+                            <option>Czarny terier rosyjski</option>
+                            <option>Dalmatyńczyk</option>
+                            <option>Dandie dinmont terrier</option>
+                            <option>Doberman</option>
+                            <option>Dog niemiecki</option>
+                            <option>Dogue de bordeaux</option>
+                            <option>Duży szwajcarski pies pasterski</option>
+                            <option>English toy terrier</option>
+                            <option>Epagneul breton</option>
+                            <option>Field spaniel</option>
+                            <option>Fila brasileiro</option>
+                            <option>Flat coated retriever</option>
+                            <option>Foksterier krótkowłosy</option>
+                            <option>Foksterier szorstkowłosy</option>
+                            <option>Foxhound amerykański</option>
+                            <option>Foxhound angielski</option>
+                            <option>Golden retriever</option>
+                            <option>Gryfon korthalsa</option>
+                            <option>Gryfonik</option>
+                            <option>Harrier</option>
+                            <option>Hawańczyk</option>
+                            <option>Irish soft coated wheaten terrier</option>
+                            <option>Irlandzki spaniel wodny</option>
+                            <option>Jack Russell terrier</option>
+                            <option>Jamnik</option>
+                            <option>Kerry blue terrier</option>
+                            <option>King Charles spaniel</option>
+                            <option>Komondor</option>
+                            <option>Kuvasz</option>
+                            <option>Labrador retriever</option>
+                            <option>Lakeland terrier</option>
+                            <option>Lhasa apso</option>
+                            <option>Lwi piesek</option>
+                            <option>link z komentarza</option>
+                            <option>Maltańczyk</option>
+                            <option>Manchester terrier</option>
+                            <option>Mastif angielski</option>
+                            <option>Mastif neapolitański</option>
+                            <option>Miniature australian shepherd</option>
+                            <option>Mops</option>
+                            <option>Moskiewski stróżujący</option>
+                            <option>Nagi pies meksykański</option>
+                            <option>Norfolk terrier</option>
+                            <option>Norsk buhund</option>
+                            <option>Owczarek australijski</option>
+                            <option>Owczarek belgijski groenendael</option>
+                            <option>Owczarek francuski beauceron</option>
+                            <option>Owczarek niemiecki</option>
+                            <option>Owczarek środkowoazjatycki</option>
+                            <option>Owczarek staroangielski</option>
+                            <option>Owczarek szetlandzki</option>
+                            <option>Pekińczyk</option>
+                            <option>Pies faraona</option>
+                            <option>Pitbull amerykański</option>
+                            <option>Pointer</option>
+                            <option>Polski owczarek nizinny</option>
+                            <option>Pudel duży</option>
+                            <option>Pudel miniaturowy</option>
+                            <option>Puli</option>
+                            <option>Rottweiler</option>
+                            <option>Shiba</option>
+                            <option>Shih tzu</option>
+                            <option>Siberian husky</option>
+                            <option>Spaniel tybetański</option>
+                            <option>Staffordshire bull terrier</option>
+                            <option>Sznaucer miniaturowy</option>
+                            <option>Sznaucer olbrzym</option>
+                            <option>Sznaucer średni</option>
+                            <option>Terier irlandzki</option>
+                            <option>Welsh corgi pembroke</option>
+                            <option>Whippet</option>
+                            <option>Wilczarz irlandzki</option>
+                            <option>Wyżeł niemiecki krótkowłosy</option>
+                            <option>Wyżeł weimarski</option>
+                            <option>Yorkshire terrier</option>
+                          </select></td>
+                        <td form="form1">
+                          <input class="form-control" name="masc" type="text" [(ngModel)]="pup.masc">
+                        </td>
+                        
+                        <td form="form1"><select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref"
+                            required name="dlugoscsiersci" [(ngModel)]="pup.dlugoscSiersci">
+                            <option>krótka</option>
+                            <option>średnia</option>
+                            <option>długa</option>
+                          </select></td>
+                        <td form="form1"> <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref"
+                            required name="rodowod" [(ngModel)]="pup.rodowod">
+                            <option>true</option>
+                            <option>false</option>
+                          </select></td>
+                        <td>{{loadpup.dataUrodzenia |date:'yyyy-MM-dd'}}</td>
+
+                        <div class="table-data-feature">
+                          <button form="form1" class="form-control" data-toggle="tooltip" class="collapse in"
+                            class="item" [disabled]="!editForm.valid" title="Zapisz" (click)="update()"
+                            [routerLink]="['/puppy']" type="submit"> <a><i class="fa fa-save"></i></a> </button>
+                          <button form="form1" class="form-control" data-toggle="tooltip" class="collapse in"
+                            data-original-title="Edit" class="item" [routerLink]="['/puppy']" type="button"> <a><i
+                                class="fa fa-undo"></i></a></button>
+
+                        </div>
+                      </tr>
+                      <tr class="spacer"></tr>
+
+                    </ng-container>
+
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="card">
+      <button type="button" class="btn btn-outline-success btn-lg active">Dodaj Szczeniaka</button>
+    </div>
+  </div>
+  </div>
+</div>

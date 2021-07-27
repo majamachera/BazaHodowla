@@ -1,0 +1,15 @@
+.dropdown-toggle {
+    cursor: pointer;
+}
+.dropdown-item {
+    cursor: pointer;
+    
+}
+a:hover{
+   
+    color:whitesmoke;
+
+}
+.dropdown-menu{
+    margin-top: 20px;
+}

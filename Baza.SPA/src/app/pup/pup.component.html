@@ -1,0 +1,86 @@
+<!-- BREADCRUMB-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="mat-typography ng-tns-0-0">
+  <div class="page-content--bgf7">
+    <section class="au-breadcrumb2"> </section>
+    <div class="row">
+      <button type="button" style="margin-left: 2%;" class="btn btn-primary float-left"  [routerLink]="['/matki']"> <i class="fa fa-chevron-left" aria-hidden="true"></i> Powrót</button>
+      </div>
+    <section class="welcome p-t-10">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <h1 class="title-4">Szczeniaki
+                  </h1>
+                  <hr class="line-seprate">
+              </div>
+          </div>
+      </div>
+  </section>
+    <section class="p-t-20">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive table-responsive-data2">
+              <table matSort (matSortChange)="loadPupsort($event)" class="table table-data2">
+
+                <thead class="tr-shadow">
+
+                  <th mat-sort-header="imie"> Imie</th>
+                  <th mat-sort-header="plec">Płeć</th>
+                  <th mat-sort-header="rasa">Rasa</th>
+                  <th mat-sort-header="masc">Maść</th>
+                  <th mat-sort-header="dlugoscsiersci">Długość Serści</th>
+                  <th mat-sort-header="rodowod">Rodowód</th>
+                  <th mat-sort-header="dataUrodzenia">Data urodzenia</th>
+                 
+
+                </thead>
+                <tbody>
+                  <tr class="spacer"></tr>
+                  <ng-container style="text-align: center;" *ngFor="let pup of pup">
+                    <ng-container *ngIf="pup.matkaId === +actionService.iddopup">
+                      <tr class="tr-shadow">
+
+                        <td>{{pup.imie}}</td>
+                        <td>{{pup.plec}}</td>
+                        <td>{{pup.rasa}}</td>
+                        <td>{{pup.masc}}</td>
+                        <td>{{pup.dlugoscSiersci}}</td>
+                        <td>{{pup.rodowod}}</td>
+                        <td>{{pup.dataUrodzenia |date:'yyyy-MM-dd HH:mm'}}</td>
+                        <div class="table-data-feature">
+                          <button [routerLink]="['/puppy/edit']" (click)="takeid(pup.id)" type="button"
+                            data-toggle="tooltip" data-original-title="Edit" class="item "><a><i
+                                class="fa fa-edit"></i></a></button>
+                          <button type="button" class="btn btn-danger " data-original-title="Usuń" data-toggle="tooltip"
+                            class="item" (click)="delatePup(pup.id)"><a><i class="fa fa-trash"></i></a></button>
+                            <button type="button" class="btn btn-danger " data-original-title="Usuń" data-toggle="tooltip"
+                            class="item" (click)="takeid(pup.id)" [routerLink]="['/puppy/zabiegi']"><a><i class="fa fa-medkit"></i></a></button>
+                        </div>
+                      </tr>
+
+                      <tr class="spacer"></tr>
+                    </ng-container>
+
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <button type="button" class="btn btn-outline-success btn-lg active" (click)="addToggle()">Dodaj Szczeniaka</button>
+        </div>
+      </div>
+    </section>
+    
+    <div class="body-card">
+      <div class="col-md-12">
+        <div *ngIf="addMode" class="container">
+          <app-addpup class="sticky-top"></app-addpup>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

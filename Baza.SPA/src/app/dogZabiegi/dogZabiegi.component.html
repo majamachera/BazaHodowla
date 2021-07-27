@@ -1,0 +1,142 @@
+<!-- BREADCRUMB-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="mat-typography ng-tns-0-0">
+  <div class="page-content--bgf7">
+    <section class="au-breadcrumb2"> </section>
+    <div class="row">
+      <button type="button" style="margin-left: 2%;" class="btn btn-primary float-left"  [routerLink]="['/menu']"> <i class="fa fa-chevron-left" aria-hidden="true"></i> Powrót</button>
+      </div>
+    <section class="welcome p-t-10">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <h1 class="title-4">Szczepienia
+                  </h1>
+                  <hr class="line-seprate">
+              </div>
+          </div>
+      </div>
+  </section>
+    <section class="p-t-20">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive table-responsive-data2">
+              <table matSort (matSortChange)="loadVacsort($event)" class="table table-data2">
+
+                <thead class="tr-shadow">
+
+                  <th mat-sort-header="nazwa"> Nazwa Szczepionki</th>
+                  <th mat-sort-header="seria">Seria</th>
+                  <th mat-sort-header="data">Data</th>
+                  <th mat-sort-header="waznosc">Ważność Szczepionki</th>
+                </thead>
+                <tbody>
+                  <tr class="spacer"></tr>
+                  <ng-container style="text-align: center;" *ngFor="let vac of vac">
+                    <ng-container *ngIf="vac.fdogId === +actionService.iddopup">
+                      <tr class="tr-shadow">
+
+                        <td>{{vac.nazwa}}</td>
+                        <td>{{vac.seria}}</td>
+                        <td>{{vac.data |date:'yyyy-MM-dd HH:mm'}}</td>
+                        <td>{{vac.waznosc |date:'yyyy-MM-dd HH:mm'}}</td>
+                        <div class="table-data-feature">
+                          
+                          <button type="button" class="btn btn-danger " (click)="delateVac(vac.id)" data-original-title="Usuń" data-toggle="tooltip"
+                            class="item" ><a><i class="fa fa-trash"></i></a></button>
+                           
+                        </div>
+                      </tr>
+
+                      <tr class="spacer"></tr>
+                    </ng-container>
+
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <button type="button" class="btn btn-outline-success btn-lg active" (click)="addToggleV()">Dodaj Szczepienie</button>
+        </div>
+      </div>
+      <div class="body-card">
+        <div class="col-md-12">
+          <div *ngIf="addModeV" class="container">
+            <app-addVaccinationDog class="sticky-top"></app-addVaccinationDog>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+  </div>
+  
+</div>
+
+  <div class="page-content--bgf7">
+    <section class="welcome p-t-10">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <h1 class="title-4">Odrobaczenia
+                  </h1>
+                  <hr class="line-seprate">
+              </div>
+          </div>
+      </div>
+  </section>
+    <section class="p-t-20">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive table-responsive-data2">
+              <table matSort (matSortChange)="loadDewsort($event)" class="table table-data2">
+
+                <thead class="tr-shadow">
+
+                  <th mat-sort-header="preparat"> Preparat</th>
+                  <th mat-sort-header="data">Data Podania</th>
+                </thead>
+                <tbody>
+                  <tr class="spacer"></tr>
+                  <ng-container style="text-align: center;" *ngFor="let dew of dew">
+                    <ng-container *ngIf="dew.fdogId === +actionService.iddopup">
+                      <tr class="tr-shadow">
+
+                        <td>{{dew.preparat}}</td>
+                        <td>{{dew.data |date:'yyyy-MM-dd HH:mm'}}</td>
+                        <div class="table-data-feature">
+                          
+                          <button type="button" class="btn btn-danger " (click)="delateDew(dew.id)" data-original-title="Usuń" data-toggle="tooltip"
+                            class="item" ><a><i class="fa fa-trash"></i></a></button>
+                           
+                        </div>
+                      </tr>
+
+                      <tr class="spacer"></tr>
+                    </ng-container>
+
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <button type="button" class="btn btn-outline-success btn-lg active" (click)="addToggleD()">Dodaj Odrobaczenie</button>
+        </div>
+      </div>
+    </section>
+    
+    <div class="body-card">
+      <div class="col-md-12">
+        <div *ngIf="addModeD" class="container">
+          <app-addDewormingDog class="sticky-top"></app-addDewormingDog>
+        </div>
+      </div>
+    </div>
+
+</div>

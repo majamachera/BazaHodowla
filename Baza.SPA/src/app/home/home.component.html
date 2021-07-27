@@ -1,0 +1,22 @@
+
+<div  class="container mt-5"  *ngIf= "!loggerIn()" >
+  <div >
+    <div *ngIf="!registerMode"  style="margin-top: 10%; text-align: center">
+    <h1 style="font-size: 400%;">Hodowla psów rasowych</h1>
+    <h2 class="lead" >Aplikacja wspomagająca hodowlę psów rasowych</h2>
+    <p class="lead"style="margin-bottom: 5%;" >Przechowywanie list posiadanych zwierząt, terminarze urodzeń, szczepień i odrobaczeń</p>
+    <div style="text-align:center">
+        <button class="btn btn-primary btn-lg mr-3" (click)="registerToggle()">Rejestracja</button>
+       
+
+      </div>
+    </div>
+    <div *ngIf= "registerMode" class="container">
+  
+        <app-register (cancelRegister) = "cancelRegisterMode($event)" ></app-register>
+    
+      </div>
+    
+
+
+</div>

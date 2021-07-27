@@ -1,0 +1,32 @@
+<div style="margin:auto;">
+  <form #myForm="ngForm"  (ngSubmit)='addvac()'>
+    <div class="card-body card-block">
+    <div class="form-group row">
+      <div class="col">
+        <label for="company" class=" form-control-label">Nazwa</label>
+        <input type="text" class="form-control" id="inputNick" aria-describedby="emailHelp" required name="imie" [(ngModel)]="model.nazwa">
+      </div>
+     
+      <div class="col">
+        <label for="company" class=" form-control-label">Seria</label>
+        <input type="text" class="form-control" id="inputNick" aria-describedby="emailHelp" required name="seria" [(ngModel)]="model.seria">
+      </div>
+      
+
+    
+    </div>
+ 
+    <div class="form-group row">
+      <div class="col">
+        <label for="exampleInputEmail1">Ważność szczepionki</label>
+        <input type="datetime-local" class="form-control" id="inputNick" aria-describedby="emailHelp" required name="waznosc" [(ngModel)]="model.waznosc">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col"><button type="submit" [disabled]="!myForm.valid" class="btn btn-success float-right" (click)="canceladdV()">Dodaj</button></div>
+    
+      <button type="button"  class="btn btn-info float-right" (click)="canceladdV()">Anuluj</button>
+  </div>
+  </div>
+  </form>
+</div>

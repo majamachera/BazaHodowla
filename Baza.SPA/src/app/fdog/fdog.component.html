@@ -1,0 +1,66 @@
+
+<div class="mat-typography ng-tns-0-0">
+  <div class="page-content--bgf7">
+    <section class="au-breadcrumb2"> </section>
+    <div class="row">
+      <button type="button" style="margin-left: 2%;" class="btn btn-primary float-left"  [routerLink]="['/menu']"> <i class="fa fa-chevron-left" aria-hidden="true"></i> Powrót</button>
+      </div>
+    <section class="welcome p-t-10">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <h1 class="title-4">Wybierz
+                      <span>matkę szczeniaka</span>
+                  </h1>
+                  <hr class="line-seprate">
+              </div>
+          </div>
+      </div>
+  </section>
+    <section class="p-t-20">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive table-responsive-data2">
+
+             
+              <div id="container">
+               
+                <table *ngFor="let fdog of fdog" routerLinkActive="['active']" class="list-group" class="table table-data2">
+                  <ng-container  *ngIf="fdog.userId === +actionService.decodedtoken?.nameid" >
+                  <ng-container *ngIf="fdog.plec === 'Suka'">
+                   <tbody>
+                   
+                      <tr class="tr-shadow">
+                        <td (click)="takeid(fdog.id)"   style="cursor:pointer;"
+                          routerLinkActive="active" [routerLink]="['/puppy']">
+                          <h2> {{fdog.imie}}</h2>
+                          <h3> Rasa: {{fdog.rasa}}</h3>
+                      
+                        </td>
+                        <td class="table-data-feature">
+                          <h3>Ilość szczeniąt: &nbsp; </h3>
+                          <button (click)="takeid(fdog.id)" [routerLink]="['/puppy']"
+                          class="btn btn-light float-right" data-toggle="tooltip" data-original-title="Edit"
+                          class="item"> {{fdog.puppies.length}}</button>
+                          
+           
+                        </td>
+                      <tr class="spacer" ></tr>
+                  
+                  </tbody>
+                </ng-container>
+              </ng-container>
+                </table>
+               
+                <div class="row">
+                  <button type="button" style="margin-left: 2%;" class="btn btn-primary float-left"  [routerLink]="['/suki']">Przejdź do matek</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
